@@ -1,17 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+@section('content')
+<div class="container mx-auto px-4 py-6">
+    <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+    <p class="text-gray-600 mb-4">Selamat datang, {{ auth()->user()->name }}! Pilih cabang untuk melihat detail:</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        @foreach($branches as $branch)
+        <a href="{{ route('branches.show', $branch->id) }}" 
+           class="block p-6 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+            Cabang: {{ $branch->name }}
+        </a>
+        @endforeach
     </div>
-</x-app-layout>
+</div>
+@endsection
