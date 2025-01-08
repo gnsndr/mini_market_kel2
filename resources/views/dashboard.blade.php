@@ -9,7 +9,7 @@
         @foreach($branches as $branch)
         <a href="{{ route('branches.show', $branch->id) }}" 
            class="block p-6 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
-            {{ $branch->name }}
+            Cabang : {{ $branch->location }}
         </a>
         @endforeach
     </div>
