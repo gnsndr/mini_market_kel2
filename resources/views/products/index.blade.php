@@ -14,6 +14,7 @@
                 <th class="px-4 py-2 text-left">#</th>
                 <th class="px-4 py-2 text-left">Nama Produk</th>
                 <th class="px-4 py-2 text-left">Harga</th>
+                <th class="px-4 py-2 text-left">Stok</th>
                 <th class="px-4 py-2 text-left">Aksi</th>
             </tr>
         </thead>

@@ -22,6 +22,11 @@
             <input type="number" id="price" name="price" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" required>
         </div>
 
+        <div class="mb-4">
+            <label for="stock" class="block text-sm font-medium text-gray-700">Stok Produk</label>
+            <input type="number" id="stock" name="stock" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" required>
+        </div>
+
         <button type="submit" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             Simpan Produk
         </button>

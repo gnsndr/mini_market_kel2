@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-6">
-    <h1 class="text-2xl font-bold mb-4">Cabang: {{ $branch->name }}</h1>
-    <p class="text-gray-600 mb-6">Lokasi: {{ $branch->city }}, {{ $branch->address }}</p>
+    <h1 class="text-2xl font-bold mb-4">{{ $branch->name }}</h1>
+    <p class="text-gray-600 mb-6">Lokasi: {{ $branch->location }}</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <a href="{{ route('products.index', $branch->id) }}" 
