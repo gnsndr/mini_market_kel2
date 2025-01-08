@@ -7,14 +7,10 @@
     <!-- Form Tambah Produk -->
     <form action="{{ route('products.store', $branch->id) }}" method="POST">
         @csrf
+        <input type="hidden" name="branch_id" value="{{ $branch->id }}">
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-700">Nama Produk</label>
             <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" required>
-        </div>
-
-        <div class="mb-4">
-            <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi Produk</label>
-            <textarea id="description" name="description" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm"></textarea>
         </div>
 
         <div class="mb-4">

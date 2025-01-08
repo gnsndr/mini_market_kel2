@@ -22,23 +22,25 @@ class ProductController extends Controller
 
 public function store(Request $request, $branchId)
 {
-    $request->validate([
-        'name' => 'required',
+    // dd($request->all()); 
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
         'price' => 'required|numeric',
+        'stock' => 'required|numeric',
     ]);
 
-    $branch = Branch::findOrFail($branchId);
-
-    $product = new Product([
-        'name' => $request->name,
-        'description' => $request->description,
-        'price' => $request->price,
-        'branch_id' => $branch->id,
+    // Menyimpan produk dengan branch_id
+    Product::create([
+        'name' => $validated['name'],
+        'price' => $validated['price'],
+        'stock' => $validated['stock'],
+        'branch_id' =>  $branchId, // Menyimpan branch_id yang diterima dari route
     ]);
-    $product->save();
 
-    return redirect()->route('products.index', $branch->id);
+    // dd($validated);
+    return redirect()->route('products.index', $branchId)->with('success', 'Produk berhasil ditambahkan.');
 }
+
 public function edit($branchId, $productId)
 {
     $branch = Branch::findOrFail($branchId);
@@ -50,6 +52,7 @@ public function update(Request $request, $branchId, $productId)
     $request->validate([
         'name' => 'required',
         'price' => 'required|numeric',
+        'stock' => 'required|numeric',
     ]);
 
     $branch = Branch::findOrFail($branchId);
@@ -57,8 +60,8 @@ public function update(Request $request, $branchId, $productId)
 
     $product->update([
         'name' => $request->name,
-        'description' => $request->description,
         'price' => $request->price,
+        'stock' => $request->stock,
     ]);
 
     return redirect()->route('products.index', $branch->id);

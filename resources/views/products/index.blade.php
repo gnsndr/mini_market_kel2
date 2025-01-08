@@ -24,6 +24,7 @@
                 <td class="px-4 py-2">{{ $loop->iteration }}</td>
                 <td class="px-4 py-2">{{ $product->name }}</td>
                 <td class="px-4 py-2">Rp {{ number_format($product->price, 0, ',', '.') }}</td>
+                <td class="px-4 py-2">{{ $product->stock }}</td> <!-- Tampilkan Stok -->
                 <td class="px-4 py-2">
                     <!-- Edit Button -->
                     <a href="{{ route('products.edit', [$branch->id, $product->id]) }}" class="text-yellow-500 hover:underline">Edit</a>

@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price'];
+    protected $fillable = ['name', 'price','stock','branch_id'];
 
     // Relasi dengan Stock
     public function stock()
