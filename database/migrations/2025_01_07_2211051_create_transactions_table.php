@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
             $table->foreignId('branch_id')->constrained()->onDelete('cascade'); // Relasi ke cabang
             $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Relasi ke produk
             $table->integer('quantity'); // Jumlah produk yang dibeli
-            $table->decimal('total_price', 10, 2); // Total harga transaksi
+            $table->decimal('total_price', 15, 2); // Total harga transaksi
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-6">
-    <h1 class="text-2xl font-bold mb-4">Tambah Produk - {{ $branch->name }}</h1>
+    <h1 class="text-2xl font-bold mb-4">Tambah Produk - Cabang {{ $branch->location }}</h1>
 
     <!-- Form Tambah Produk -->
     <form action="{{ route('products.store', $branch->id) }}" method="POST">

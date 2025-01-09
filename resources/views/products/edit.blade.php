@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-6">
-    <h1 class="text-2xl font-bold mb-4">Edit Produk - {{ $branch->name }}</h1>
+    <h1 class="text-2xl font-bold mb-4">Edit Produk - Cabang {{ $branch->location }}</h1>
 
     <!-- Form Edit Produk -->
     <form action="{{ route('products.update', [$branch->id, $product->id]) }}" method="POST">
