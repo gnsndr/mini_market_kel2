@@ -24,6 +24,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/stocks', [StockController::class, 'index'])->name('stocks.index');
     });
 
+    Route::get('/branches/{branch}/stocks', [StockController::class, 'index'])->name('stocks.index');
+Route::get('/branches/{branch}/stocks/create', [StockController::class, 'create'])->name('stocks.create');
+Route::post('/branches/{branch}/stocks', [StockController::class, 'store'])->name('stocks.store');
+
     Route::get('/branches/{branchId}/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/branches/{branchId}/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/branches/{branchId}/products', [ProductController::class, 'store'])->name('products.store');
