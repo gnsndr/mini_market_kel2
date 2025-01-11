@@ -63,4 +63,12 @@ class TransactionController extends Controller
             return redirect()->back()->with('error', 'Stok tidak cukup.');
         }
     }
+
+    public function report()
+    {
+        $transactions = Transaction::with(['branch', 'product'])->get();
+        $totalRevenue = $transactions->sum('total_price');
+
+        return view('transactions.report', compact('transactions', 'totalRevenue'));
+    }
 }

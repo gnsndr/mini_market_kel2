@@ -6,7 +6,9 @@
     <h1 class="text-2xl font-bold mb-6">Daftar Transaksi</h1>
 
     <!-- Tambahkan tombol untuk menambah transaksi -->
+    @if(auth()->user()->hasRole('Kasir') || auth()->user()->hasRole('Admin') || auth()->user()->hasRole('Manajer Toko'))
     <a href="{{ route('transactions.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4">Tambah Transaksi</a>
+@endif
 
     <table class="table-auto w-full border-collapse">
         <thead>

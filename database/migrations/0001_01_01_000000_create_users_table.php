@@ -10,12 +10,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Tabel roles
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'); // admin, manager, supervisor, kasir, gudang
-            $table->timestamps();
-        });
+        // // Tabel roles
+        // Schema::create('roles', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name'); // admin, manager, supervisor, kasir, gudang
+        //     $table->timestamps();
+        // });
 
         // Tabel users
         Schema::create('users', function (Blueprint $table) {
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('role_id')->constrained()->onDelete('cascade'); // Relasi ke tabel roles
+            $table->string('peran')->nullable(); // Relasi ke tabel roles
             $table->rememberToken();
             $table->timestamps();
         });

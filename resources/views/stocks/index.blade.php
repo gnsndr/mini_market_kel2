@@ -5,9 +5,11 @@
     <h1 class="text-2xl font-bold mb-4">Manajemen Stok - Cabang {{ $branch->location }}</h1>
 
     <!-- Tombol Tambah Stok -->
+    @if(auth()->user()->hasRole('Admin') || auth()->user()->hasRole('Manajer Toko') || auth()->user()->hasRole('Pegawai Gudang'))
     <a href="{{ route('stocks.create', $branch->id) }}" class="mb-4 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
         Tambah Stok
     </a>
+    @endif
 
     <!-- Tabel Data Stok -->
     <table class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">

@@ -13,10 +13,10 @@ class StockSeeder extends Seeder
         $branch = Branch::find(1);
         $branch->stocks()->create(['product_id' => 1, 'quantity' => 100]);
 
-        $branch = Branch::find(2);
-        $branch->stocks()->create(['product_id' => 2, 'quantity' => 150]);
+        // $branch = Branch::find(2);
+        // $branch->stocks()->create(['product_id' => 2, 'quantity' => 150]);
 
-        $branch = Branch::find(3);
-        $branch->stocks()->create(['product_id' => 3, 'quantity' => 200]);
+        // $branch = Branch::find(3);
+        // $branch->stocks()->create(['product_id' => 3, 'quantity' => 200]);
     }
 }

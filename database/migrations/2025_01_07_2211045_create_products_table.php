@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('branch_id'); // Foreign key untuk cabang
             $table->string('name'); // Nama produk
             $table->text('description')->nullable(); 
-            $table->integer('stock');
+            $table->integer('stock')->nullable();
             $table->decimal('price', 10, 2); // Harga produk
             $table->timestamps();
 
