@@ -39,6 +39,11 @@ Route::delete('/branches/{branchId}/products/{productId}', [ProductController::c
         Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
         Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
         Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+            // Route untuk laporan transaksi
+    Route::get('/transactions/report', [TransactionController::class, 'report'])->name('transactions.report');
+
+    // Route untuk mencetak laporan transaksi dalam format PDF
+    Route::get('/transactions/report/print', [TransactionController::class, 'printReport'])->name('transactions.printReport');
     });
 
     // Transaksi

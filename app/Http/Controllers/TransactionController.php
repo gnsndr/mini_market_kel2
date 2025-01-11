@@ -1,6 +1,5 @@
 <?php
 
-// app/Http/Controllers/TransactionController.php
 namespace App\Http\Controllers;
 
 use App\Models\Branch;
@@ -8,6 +7,7 @@ use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\Stock;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf; // Pastikan importnya benar
 
 class TransactionController extends Controller
 {
@@ -71,4 +71,23 @@ class TransactionController extends Controller
 
         return view('transactions.report', compact('transactions', 'totalRevenue'));
     }
+
+    public function printReport()
+    {
+        try {
+            $transactions = Transaction::with(['branch', 'product'])->get();
+            $totalRevenue = $transactions->sum('total_price');
+
+            // Generate PDF
+            $pdf = Pdf::loadView('transactions.report_pdf', compact('transactions', 'totalRevenue'));
+
+            // Return the PDF as a download
+            return $pdf->download('laporan_transaksi.pdf');
+        } catch (\Exception $e) {
+            // If error occurs
+            return redirect()->route('transactions.index')->with('error', 'Terjadi kesalahan saat mencetak laporan: ' . $e->getMessage());
+        }
+    }
+    
+   
 }

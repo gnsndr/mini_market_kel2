@@ -9,7 +9,11 @@
     @if(auth()->user()->hasRole('Kasir') || auth()->user()->hasRole('Admin') || auth()->user()->hasRole('Manajer Toko'))
     <a href="{{ route('transactions.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4">Tambah Transaksi</a>
 @endif
-
+@if(auth()->user()->hasRole('Admin') || auth()->user()->hasRole('Manajer Toko'))
+    <a href="{{ route('transactions.printReport') }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 mb-4">Print Laporan</a>
+    @endif
+    <br>
+    <br>
     <table class="table-auto w-full border-collapse">
         <thead>
             <tr class="bg-gray-200">

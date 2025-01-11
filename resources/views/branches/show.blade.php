@@ -18,10 +18,10 @@
            class="block p-6 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
             Transaksi Penjualan
         </a>
-        <a href="{{ route('reports.index', $branch->id) }}" 
+        {{-- <a href="{{ route('reports.index', $branch->id) }}" 
            class="block p-6 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600">
             Laporan
-        </a>
+        </a> --}}
     </div>
 </div>
 @endsection
